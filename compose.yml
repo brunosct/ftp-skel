@@ -1,8 +1,15 @@
 services:
   ftpserver:
     build: docker/ftpserver
+    hostname: ftpserver
     networks:
       rede_ftp:    
+    volumes:
+      - ./ftp/vsftpd.conf:/etc/vsftpd.conf
+      - ./ftp/banner.txt:/etc/banner.txt
+      - ./ftp/lista.txt:/etc/vsftpd.chroot_list
+      - ./ftp/cert.pem:/etc/ssl/certs/vsftpd.pem
+      - ./ftp/chave.pem:/etc/ssl/private/vsftpd.pem
   cliente1:
     build: docker/cliente
     hostname: cliente1

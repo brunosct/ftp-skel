@@ -3,4 +3,5 @@
 rsyslogd
 
 vsftpd
+sleep infinity
 
